@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
+import AddCategory from './components/AddCategory';
 
 const GifExpertApp = () => {
 
-    // const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
-
     const [categories, setCategories] = useState(['One Punch', 'Samurai X', 'Dragon Ball']);
 
-    const handleAdd = () => {
-        const anime = 'Black Clover';
-        //  setCategories([...categories, anime]); 
-        setCategories((cats) => [...cats, anime]);
-    };
+    // const handleAdd = () => {
+    //     const anime = 'Black Clover';
+    //     //  setCategories([...categories, anime]); 
+    //     setCategories((cats) => [...cats, anime]);
+    // };
 
     return (
-        <>
+        <div className="gif-expert-app">
             <h2>GifExpertApp</h2>
+            <AddCategory 
+                setCategories={setCategories}
+            />
             <hr/>
-            <button onClick={ handleAdd }>Agregar</button>
             <ol>
                 {
                     categories.map((category) => {
@@ -24,7 +25,7 @@ const GifExpertApp = () => {
                     })
                 }
             </ol>
-        </>
+        </div>
     );
 }
  
