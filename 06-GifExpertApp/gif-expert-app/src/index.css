@@ -14,7 +14,14 @@ html {
 }
 
 body {
-    background-color: var(--grisReact);
+    background: rgba(133,173,204,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(133,173,204,1) 0%, rgba(33,35,42,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(133,173,204,1)), color-stop(100%, rgba(33,35,42,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(133,173,204,1) 0%, rgba(33,35,42,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(133,173,204,1) 0%, rgba(33,35,42,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(133,173,204,1) 0%, rgba(33,35,42,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(133,173,204,1) 0%, rgba(33,35,42,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85adcc', endColorstr='#21232a', GradientType=1 );
     box-sizing: border-box;
     color: white;
     display: flex;
@@ -23,7 +30,7 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
-    min-height: 100vh;
+    min-height: 100vh; 
 }
 
 .content {
@@ -44,12 +51,42 @@ body {
     margin: 0 auto;
 }
 
+.main-title {
+    background-color: var(--grisReact);
+    border: 5px solid gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: 90%;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 10s linear;
+    height: 10vmin;
+    pointer-events: none;
+}
+
+.main-title h2 {
+    transform: scale(1.5);
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 h2 {
     text-align: center;
 }
 
 hr {
-    border: 1px solid var(--azulReact);
+    border: 2px solid var(--azulReact);
     width: 90%
 }
 
@@ -62,7 +99,7 @@ form {
 }
 
 input {
-    border: 2px solid var(--grisReact);
+    border: 2px solid gray;
     border-radius: 5px;
     color: var(--grisReact);
     font-size: 1.2rem;
@@ -95,7 +132,8 @@ ol {
 
 .card {
     align-content: center;
-    border: 2px solid var(--azulReact);
+    background-color: var(--grisReact);
+    border: 5px solid var(--grisReact);
     border-radius: 6px;
     margin-bottom: 10px;
     overflow: hidden;
@@ -109,6 +147,7 @@ ol {
 
 .card img {
     width: 100%;
+    border-radius: 5px;
 }
 
 @media only screen and (min-width: 480px) {

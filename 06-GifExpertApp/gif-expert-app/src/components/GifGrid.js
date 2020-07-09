@@ -16,7 +16,7 @@ const GifGrid = ({category}) => {
         try {
 
             const resp = await fetch(url);
-            if(!resp) throw new Error ('No se pudo realizar la petición');
+            if(!resp.ok) throw new Error ('No se pudo realizar la petición');
 
             const { data } = await resp.json();
 
