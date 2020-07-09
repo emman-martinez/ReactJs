@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import AddCategory from './components/AddCategory';
+import GifGrid from './components/GifGrid';
 
 const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['One Punch', 'Samurai X', 'Dragon Ball']);
-
-    // const handleAdd = () => {
-    //     const anime = 'Black Clover';
-    //     //  setCategories([...categories, anime]); 
-    //     setCategories((cats) => [...cats, anime]);
-    // };
+    const [categories, setCategories] = useState(['One Punch']);
 
     return (
         <div className="gif-expert-app">
-            <h2>GifExpertApp</h2>
+            <div className="main-title">
+                <h2>GifExpertApp</h2>
+            </div>
             <AddCategory 
                 setCategories={setCategories}
             />
@@ -21,12 +18,15 @@ const GifExpertApp = () => {
             <ol>
                 {
                     categories.map((category) => {
-                        return <li key={category}>{category}</li>;
+                        return <GifGrid
+                                    key={category}
+                                    category={category}
+                                />;
                     })
                 }
             </ol>
         </div>
     );
 }
- 
+
 export default GifExpertApp;

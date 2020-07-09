@@ -17,16 +17,30 @@ body {
     background-color: var(--grisReact);
     box-sizing: border-box;
     color: white;
-    display: flex; 
+    display: flex;
     font-family: Arial, Helvetica, sans-serif;
     flex-direction: column;
     align-items: center;
-    /*justify-content: center;*/ 
+    justify-content: center;
     margin: 0;
-    /*min-height: 100vh;*/ 
+    min-height: 100vh;
+}
+
+.content {
+    /* se habilita el scroll vertical */
+    overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar {
+    /* solo oculta su visualizacion */
+    display: none;
 }
 
 .gif-expert-app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin: 0 auto;
 }
 
@@ -36,6 +50,15 @@ h2 {
 
 hr {
     border: 1px solid var(--azulReact);
+    width: 90%
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    width: 90%;
 }
 
 input {
@@ -44,7 +67,6 @@ input {
     color: var(--grisReact);
     font-size: 1.2rem;
     height: 40px;
-    margin: 0;
     outline: none;
     padding-left: 10px;
     width: 100%;
@@ -54,20 +76,55 @@ input:focus {
     border: 2px solid var(--azulReact);
 }
 
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+.category {
+    margin: 0 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    margin: 0 20px;
+    max-width: 1200px;
+}
+
+.card {
+    align-content: center;
+    border: 2px solid var(--azulReact);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card p {
+    padding: 5px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+}
+
 @media only screen and (min-width: 480px) {
-    form, input {
-        width: 400px;
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media only screen and (min-width: 768px) {
-    form, input {
-        width: 700px;
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media only screen and (min-width: 1024px) {
-    form, input {
-        width: 968px;
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
-} 
+}
