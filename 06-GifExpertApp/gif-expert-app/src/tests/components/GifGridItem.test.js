@@ -5,10 +5,13 @@ import GifGridItem from '../../components/GifGridItem';
 
 describe('Pruebas en <GifGridItem />', () => {
 
-    let wrapper = shallow( < GifGridItem / > );
+    const title = 'Un título';
+    const url = 'https://localhost/algo.jpg';
+
+    let wrapper = shallow( <GifGridItem title={title} url={url}/> );
 
     beforeEach(() => {
-        wrapper = shallow( < GifGridItem / > );
+        wrapper = shallow( <GifGridItem title={title} url={url}/> );
     });
 
     test('Debe de mostrar el componente correctamente', () => {
@@ -17,4 +20,4 @@ describe('Pruebas en <GifGridItem />', () => {
 
     });
 
-});
+}); 
