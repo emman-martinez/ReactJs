@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Puebas en <AddCategory /> Debe de mostrarse correctamente 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Add Category..."
+    type="text"
+    value=""
+  />
+</form>
+`;
