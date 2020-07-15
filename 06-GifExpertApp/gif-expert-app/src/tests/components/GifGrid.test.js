@@ -47,7 +47,7 @@ describe('Puebas en <GifGrid />', () => {
 
         expect(wrapper).toMatchSnapshot();
         expect(ChaseComponent).toBe(false);
-        expect(GifGridItemComponent.length).toBe(gifs.length);
+        expect(GifGridItemComponent.length).toBe(gifs.length); 
 
     });
 
