@@ -2,9 +2,55 @@
 
 exports[`Pruebas en <GifExpertApp /> Debe de mostrar el componente correctamente 1`] = `
 <div
-  className="card animate__animated animate__fadeIn"
+  className="gif-expert-app"
 >
-  <img />
-  <h2 />
+  <div
+    className="main-title"
+  >
+    <Imagen />
+    <h2>
+      GifExpertApp
+    </h2>
+    <Imagen />
+  </div>
+  <AddCategory
+    setCategories={[Function]}
+  />
+  <hr />
+  <ol />
+</div>
+`;
+
+exports[`Pruebas en <GifExpertApp /> Debe de mostrar una lista de categorias 1`] = `
+<div
+  className="gif-expert-app"
+>
+  <div
+    className="main-title"
+  >
+    <Imagen />
+    <h2>
+      GifExpertApp
+    </h2>
+    <Imagen />
+  </div>
+  <AddCategory
+    setCategories={[Function]}
+  />
+  <hr />
+  <ol>
+    <GifGrid
+      category="One Punch"
+      key="One Punch"
+    />
+    <GifGrid
+      category="Dragon Ball"
+      key="Dragon Ball"
+    />
+    <GifGrid
+      category="Black Clover"
+      key="Black Clover"
+    />
+  </ol>
 </div>
 `;

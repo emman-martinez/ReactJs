@@ -3,9 +3,10 @@ import AddCategory from './components/AddCategory';
 import GifGrid from './components/GifGrid';
 import Imagen from './components/Imagen';
 
-const GifExpertApp = () => {
+const GifExpertApp = ({defaultCategories = []}) => {
 
-    const [categories, setCategories] = useState(['One Punch']);
+    // const [categories, setCategories] = useState(['One Punch']);
+    const [categories, setCategories] = useState(defaultCategories);
 
     return (
         <div className="gif-expert-app">
