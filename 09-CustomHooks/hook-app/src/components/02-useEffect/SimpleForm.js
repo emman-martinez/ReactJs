@@ -34,7 +34,7 @@ const SimpleForm = () => {
 
     return (
 
-        <div>
+        <div className="simple-form">
             <h1>useEffect</h1>
             <hr/>
             <div className="form-group">
