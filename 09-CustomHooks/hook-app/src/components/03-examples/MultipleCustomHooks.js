@@ -6,7 +6,7 @@ import useCounter from '../../hooks/useCounter';
 
 const MultipleCustomHooks = () => {
 
-    const { state: counter, increment, decrement, reset } = useCounter();
+    const { state: counter, increment, decrement } = useCounter();
 
     const url = `https://www.breakingbadapi.com/api/quotes/${counter}`;
     const { data, loading } = useFetch(url);
@@ -33,12 +33,21 @@ const MultipleCustomHooks = () => {
             }
 
             <div className="paginacion">
-                <button 
-                    className="btn btn-success"
-                    onClick={ decrement }
-                >
-                    Prev Quote
-                </button>
+                {
+                    counter === 1 
+                    ?
+                        ''
+                    :
+                        (
+                            <button 
+                                className="btn btn-success"
+                                onClick={ decrement }
+                            >
+                                Prev Quote
+                            </button>
+                        )
+                }
+                
                 <p>
                     { counter }
                 </p>
