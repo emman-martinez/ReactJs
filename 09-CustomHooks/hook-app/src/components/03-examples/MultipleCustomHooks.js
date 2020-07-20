@@ -18,21 +18,23 @@ const MultipleCustomHooks = () => {
 
             <h1>Breaking Bad Quotes</h1>
             <hr/>
-
-            { 
-                loading 
-                    ?
-                        <SpinnerChase />
-                    : 
-                        (
-                            <blockquote className="blockquote text-right">
-                                <p className="mb-0">{ quote }</p>
-                                <footer className="blockquote-footer">{ author }</footer>
-                            </blockquote>
-                        )
-            }
+            <div className="quote">
+                { 
+                    loading 
+                        ?
+                            <SpinnerChase />
+                        : 
+                            (
+                                <blockquote className="blockquote text-right">
+                                    <p className="mb-0">{ quote }</p>
+                                    <footer className="blockquote-footer">{ author }</footer>
+                                </blockquote>
+                            )
+                }
+            </div>
 
             <div className="paginacion">
+
                 {
                     counter === 1 
                     ?
@@ -48,15 +50,13 @@ const MultipleCustomHooks = () => {
                         )
                 }
                 
-                <p>
-                    { counter }
-                </p>
                 <button 
                     className="btn btn-success"
                     onClick={ increment }
                 >
                     Next Quote
                 </button>
+                
             </div>
             
         </div>
