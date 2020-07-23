@@ -26,11 +26,39 @@ h1 {
 
 hr {
     border: 2px solid #61dafb;
-    width: 90%;
+    width: 100%;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1200px;
+}
+
+li {
+    color: rgba(33, 35, 42, 1);
+}
+
+p {
+    cursor: pointer;
+    margin: 0;
+}
+
+.row {
+    width: 90%;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+.col-5 hr {
+    width: 100%;
 }
