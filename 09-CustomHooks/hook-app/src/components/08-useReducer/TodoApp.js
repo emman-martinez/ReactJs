@@ -39,6 +39,16 @@ const TodoApp = () => {
 
     };
 
+    const handleToggle = (todoId) => {
+
+        const action = {
+            type: 'TOGGLE',
+            payload: todoId,
+        };
+        dispatch(action);
+
+    };
+
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -76,7 +86,12 @@ const TodoApp = () => {
                                             key={todo.id}
                                             className="list-group-item"
                                         >
-                                            <p className="text-center"> {i + 1}. {todo.desc}</p>
+                                            <p 
+                                                className={`${todo.done && 'complete'}`}
+                                                onClick= {() => handleToggle(todo.id)}
+                                            > 
+                                                {i + 1}. {todo.desc}
+                                            </p>
                                             <button 
                                                 className="btn btn-danger"
                                                 onClick={() => handleDelete(todo.id)}
