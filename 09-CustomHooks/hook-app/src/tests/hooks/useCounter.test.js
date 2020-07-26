@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useCounter from '../../hooks/useCounter';
 
 describe('Pruebas en useCounter', () => {
@@ -9,5 +9,37 @@ describe('Pruebas en useCounter', () => {
         expect(typeof result.current.increment).toBe('function');
         expect(typeof result.current.decrement).toBe('function');
         expect(typeof result.current.reset).toBe('function');
+    }); 
+    test('Debe de retornar el counter en 100', () => {
+        const { result } = renderHook(() => useCounter(100));
+        expect(result.current.state).toBe(100);
+    }); 
+    test('Debe de incrementar el counter en 1', () => {
+        const { result } = renderHook(() => useCounter(100));
+        const { increment } = result.current;
+        act(() => {
+            increment();
+        });
+        const { state: counter } = result.current;
+        expect(counter).toBe(101);
+    });
+    test('Debe de decremetar el counter en 1', () => {
+        const { result } = renderHook(() => useCounter(100));
+        const { decrement } = result.current;
+        act(() => {
+            decrement();
+        });
+        const { state: counter } = result.current;
+        expect(counter).toBe(99);
+    });
+    test('Debe de hacer el reset del counter', () => {
+        const { result } = renderHook(() => useCounter(100));
+        const { reset, decrement } = result.current;
+        act(() => {
+            decrement();
+            reset();
+        });
+        const { state: counter } = result.current;
+        expect(counter).toBe(100);
     });
 });
