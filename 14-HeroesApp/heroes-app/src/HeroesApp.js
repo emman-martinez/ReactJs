@@ -7,3 +7,5 @@ const HeroesApp = () => {
         </div>
     );
 };
+
+export default HeroesApp;
