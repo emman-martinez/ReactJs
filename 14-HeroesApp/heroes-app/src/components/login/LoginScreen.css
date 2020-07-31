@@ -1,0 +1,37 @@
+:root {
+    --grisReact: #21232A;
+    --azulReact: #00b3e6;
+}
+
+.container {
+    align-items: center;
+    background: rgba(133, 173, 204, 1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(133, 173, 204, 1) 0%, rgba(33, 35, 42, 1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(133, 173, 204, 1)), color-stop(100%, rgba(33, 35, 42, 1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(133, 173, 204, 1) 0%, rgba(33, 35, 42, 1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(133, 173, 204, 1) 0%, rgba(33, 35, 42, 1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(133, 173, 204, 1) 0%, rgba(33, 35, 42, 1) 100%);
+    background: radial-gradient(ellipse at center, rgba(133, 173, 204, 1) 0%, rgba(33, 35, 42, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#85adcc', endColorstr='#21232a', GradientType=1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid cornflowerblue;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+}
+
+hr {
+    border: 2px solid var(--azulReact);
+    width: 80%;
+}
+
+.container h1 {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    width: 80%;
+}
