@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Navbar } from '../components/ui/Navbar';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MarvelScreen from '../components/marvel/MarvelScreen';
@@ -7,9 +7,9 @@ import DcScreen from '../components/dc/DcScreen';
 
 export const DashboardRoutes = () => {
     return (
-        <div>
+        <Fragment>
             <Navbar />
-            <div>
+            <div className="container mt-2">
                 <Switch>
                     <Route exact path="/marvel" component={ MarvelScreen }/>
                     <Route exact path="/heroe/:heroeId" component={ HeroScreen }/>
@@ -17,6 +17,6 @@ export const DashboardRoutes = () => {
                     <Redirect to="/marvel" />
                 </Switch>
             </div>
-        </div>
+        </Fragment>
     );
 };
