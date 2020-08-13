@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const LoginScreen = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('LoginScreen: handleSubmit');
+    };
+
     return (
         <div>
             <h3 className="auth__title">Login</h3>
@@ -21,13 +27,13 @@ export const LoginScreen = () => {
                 />
                 <button
                     type="submit"
+                    className="btn btn-primary btn-block"
+                    onClick={ handleSubmit }
                 >
                     Login
                 </button>
-
-                <hr/>
                 
-                <div>
+                <div className="auth__social-networks">
                     <p>Login with social networks</p>
                     <div className="google-btn">
                         <div className="google-icon-wrapper">
@@ -39,7 +45,10 @@ export const LoginScreen = () => {
                     </div>
                 </div>
 
-                <Link to="/auth/register">
+                <Link 
+                    to="/auth/register"
+                    className="link"
+                >
                     Create New Account
                 </Link>
 
