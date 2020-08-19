@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
     Redirect
 } from "react-router-dom";
 import { useDispatch } from 'react-redux';
@@ -10,6 +9,9 @@ import { firebase } from '../firebase/firebase-config';
 import { AuthRouter } from './AuthRouter';
 import { JournalScreen } from '../components/journal/JournalScreen';
 import { login } from '../redux/actions/auth';
+// import { LoginScreen } from '../components/auth/LoginScreen';
+import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const AppRouter = () => {
 
@@ -47,21 +49,47 @@ export const AppRouter = () => {
             <div>
                 <Switch>
 
-                    <Route 
-                        path="/auth"
+                    <PublicRoute 
+                        path="/auth" 
                         component={ AuthRouter }
+                        isAuthenticated={ isLoggedIn }
                     />
-
-                    <Route 
-                        exact 
-                        path="/"
+                    <PrivateRoute 
+                        exact
+                        path="/" 
                         component={ JournalScreen }
+                        isAuthenticated={ isLoggedIn }
                     />
 
-                    <Redirect to="/auth/login"/>
+                    <Redirect to="/auth/login" />
 
                 </Switch>
             </div>
         </Router>
     );
+
 };
+
+/* *** SIN RUTAS PRIVADAS *** */
+// return (
+    //     <Router>
+    //         <div>
+    //             <Switch>
+
+    //                 <Route 
+    //                     path="/auth"
+    //                     component={ AuthRouter }
+    //                 />
+
+    //                 <Route 
+    //                     exact 
+    //                     path="/"
+    //                     component={ JournalScreen }
+    //                 />
+
+    //                 <Redirect to="/auth/login"/>
+
+    //             </Switch>
+    //         </div>
+    //     </Router>
+    // );
