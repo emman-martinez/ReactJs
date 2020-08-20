@@ -9,9 +9,10 @@ import { firebase } from '../firebase/firebase-config';
 import { AuthRouter } from './AuthRouter';
 import { JournalScreen } from '../components/journal/JournalScreen';
 import { login } from '../redux/actions/auth';
-// import { LoginScreen } from '../components/auth/LoginScreen';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { loadNotes } from '../helpers/loadNotes';
+import { setNotes } from '../redux/actions/notes';
 
 export const AppRouter = () => {
 
@@ -25,14 +26,24 @@ export const AppRouter = () => {
 
     useEffect(() => {
 
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(async(user) => {
+
             if(user?.uid) {
+
                 dispatch(login(user.uid, user.displayName));
                 setIsLoggedIn(true);
+
+                const notes = await loadNotes(user.uid);
+                dispatch(setNotes(notes));
+
             } else {
+
                 setIsLoggedIn(false);
+
             }
+
             setChecking(false);
+
         });
         
     }, [ dispatch, setChecking, setIsLoggedIn ]);

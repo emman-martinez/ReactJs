@@ -34,3 +34,12 @@ export const activeNote = (id, note) => {
     };
 
 };
+
+export const setNotes = (notes) => {
+
+    return {
+        type: types.notesLoad,
+        payload: notes
+    };
+
+};
