@@ -11,8 +11,7 @@ import { JournalScreen } from '../components/journal/JournalScreen';
 import { login } from '../redux/actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { loadNotes } from '../helpers/loadNotes';
-import { setNotes } from '../redux/actions/notes';
+import { startLoadingNotes } from '../redux/actions/notes';
 
 export const AppRouter = () => {
 
@@ -33,8 +32,8 @@ export const AppRouter = () => {
                 dispatch(login(user.uid, user.displayName));
                 setIsLoggedIn(true);
 
-                const notes = await loadNotes(user.uid);
-                dispatch(setNotes(notes));
+                dispatch(startLoadingNotes(user.uid));
+                
 
             } else {
 
