@@ -55,3 +55,22 @@ export const setNotes = (notes) => {
     };
 
 };
+
+// Guardar Nota editada en Firebase
+export const startSaveNote = (note) => {
+
+    return async(dispatch, getState) => {
+        const state = getState().auth;
+        const { uid } = state;
+
+        if (!note.url) {
+            delete note.url;
+        }
+
+        const noteToFirestore = {...note };
+        delete noteToFirestore.id;
+
+        await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
+    };
+
+};
