@@ -13,7 +13,7 @@ export const NoteScreen = () => {
 
     const [ formValues, handleInputChange, reset ] = useForm(note);
     //  console.log(formValues);
-    const { body, title, url } = formValues;
+    const { body, title } = formValues;
 
     const activeId = useRef(note.id);
 
