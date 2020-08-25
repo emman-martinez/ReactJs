@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { db } from "../../firebase/firebase-config";
 import { types } from "../types/types";
 import { loadNotes } from "../../helpers/loadNotes";
@@ -71,6 +72,24 @@ export const startSaveNote = (note) => {
         delete noteToFirestore.id;
 
         await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
+        dispatch(refreshNote(note.id, note));
+        Swal.fire('Saved', note.title, 'success');
+    };
+
+};
+
+// Actualizar la vista de manera instantanea
+export const refreshNote = (id, note) => {
+
+    return {
+        type: types.notesUpdated,
+        payload: {
+            id,
+            note: {
+                id,
+                ...note
+            }
+        }
     };
 
 };
