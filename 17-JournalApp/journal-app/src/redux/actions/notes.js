@@ -124,3 +124,25 @@ export const startUploading = (file) => {
     };
 
 };
+
+// Borrar Nota
+export const startDeleting = (id) => {
+
+    return async(dispatch, getState) => {
+
+        const uid = getState().auth.uid;
+        await db.doc(`${uid}/journal/notes/${id}`).delete();
+
+        dispatch(deleteNote(id));
+
+    };
+
+};
+
+// Modificar el store después de borrar una nota
+export const deleteNote = (id) => {
+    return {
+        type: types.notesDelete,
+        payload: id
+    }
+};
