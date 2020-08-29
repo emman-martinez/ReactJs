@@ -1,10 +1,22 @@
 import '@testing-library/jest-dom';
-import { types } from '../../../redux/types/types';
+import configureStore from 'redux-mock-store'; //ES6 modules
+import thunk from 'redux-thunk';
+import { startNewNote } from '../../../redux/actions/notes';
 
-describe('Pruebas en notes-actions', () => {
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 
-    test('Todas las acciones deben de funcionar', () => {
+const store = mockStore({
+    auth: {
+        uid: 'TESTING',
+    }
+});
 
+describe('Pruebas con las acciones de notes', () => {
+
+    test('Debe de crear una nueva nota startNewNote', async() => {
+
+        await store.dispatch(startNewNote());
 
     });
 
