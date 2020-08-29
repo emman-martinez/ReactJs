@@ -5,7 +5,7 @@ import { uiStartLoading, uiFinishLoading } from './ui';
 import { noteLogout } from './notes';
 
 export const startLoginEmailPassword = (email, password) => {
-   
+
     return (dispatch) => {
         dispatch(uiStartLoading());
         firebase.auth().signInWithEmailAndPassword(email, password)
@@ -13,12 +13,12 @@ export const startLoginEmailPassword = (email, password) => {
                 dispatch(login(user.uid, user.displayName));
                 dispatch(uiFinishLoading());
             })
-            .catch( e => {
+            .catch(e => {
                 console.log(e);
                 dispatch(uiFinishLoading());
                 Swal.fire('Error', e.message, 'error');
-            }); 
-        
+            });
+
     };
 
 };
@@ -35,10 +35,10 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
                     login(user.uid, user.displayName)
                 )
             })
-            .catch( e => {
+            .catch(e => {
                 console.log(e);
                 Swal.fire('Error', e.message, 'error');
-            }); 
+            });
 
     };
 
@@ -84,4 +84,3 @@ export const logout = () => {
         type: types.logout
     }
 };
-
