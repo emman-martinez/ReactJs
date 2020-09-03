@@ -9,12 +9,6 @@ import { firebase } from './../../firebase/firebase-config';
 import { AppRouter } from '../../routers/AppRouter';
 import { login } from '../../redux/actions/auth';
 import { act } from 'react-dom/test-utils';
-import Swal from 'sweetalert2';
-
-
-jest.mock('sweetalert2', () => ({
-    Swal: jest.fn()
-}));
 
 jest.mock('../../redux/actions/auth', () => ({
     login: jest.fn()
